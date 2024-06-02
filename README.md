@@ -7,12 +7,12 @@
 
 
 ## C#
-1. Check the `Scripts/Screen/ScreenBase.cs` [button] statement which create editor button to call and test the method directly (**it even works if Play if off**);
-2. 
-
+1. Check the `Scripts/Screen/ScreenBase.cs` [button] statement which create editor button to call and test the method directly on Editor (**it even works if Play if off, BUT AVOID ID!**);
+2. Check the `Scripts/Button/ButtonScale.cs`. Check the **Hover** event by Implementing Interfaces and check Tween `Kill()` to avoid animation **"crashes"**
 
 ## UI/HUD
 1. 
+
 
 # UnityTemplate
 1. [Unity GitHub Repo Template](https://github.com/TonGarcia/UnityTemplate)
