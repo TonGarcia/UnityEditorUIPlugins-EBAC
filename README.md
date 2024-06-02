@@ -15,6 +15,13 @@
    1. inactive all children GameObjects
    2. active the **"ScreenBase"** GameObject
    3. set the ScreenBase image and the C# script gonna enable/disable just the image, not the GameObject
+2. Each **screen** should get a component `ScreenBase` and each **button** should get components: 1. `ButtonScale` (animate gameobject), 2. `ScreenHelper` (switch screens), 3. add click to button component and the target will be `ScreenHelper.onclick`.
+3. **`Particle System`**:
+   1. As it is (UI Canvas default camera) the particle won't be displayed/rendered. Steps to fix it:
+      1. Render Mode: **Screen Space - Camera**
+      2. Set (Drag & Drop) the MainCamera into it
+      3. Drag & Drop the Particle System inside the MainCamera GameObject
+      4. 
 
 
 # UnityTemplate
