@@ -1,3 +1,29 @@
+# Unity Tips
+*Free Assets used:
+1. Dark UI
+2. NaughtyAttributes
+*Editor Tips:
+1. On list attributes: select all elements on the Hierarchy and drag & drop into the list attr name
+
+
+## C#
+1. Check the `Scripts/Screen/ScreenBase.cs` [button] statement which create editor button to call and test the method directly on Editor (**it even works if Play if off, BUT AVOID ID!**);
+2. Check the `Scripts/Button/ButtonScale.cs`. Check the **Hover** event by Implementing Interfaces and check Tween `Kill()` to avoid animation **"crashes"**
+
+## UI/HUD
+1. The screens GameObjects need to be Active to get their Scripts working. So to do that, follow the steps:
+   1. inactive all children GameObjects
+   2. active the **"ScreenBase"** GameObject
+   3. set the ScreenBase image and the C# script gonna enable/disable just the image, not the GameObject
+2. Each **screen** should get a component `ScreenBase` and each **button** should get components: 1. `ButtonScale` (animate gameobject), 2. `ScreenHelper` (switch screens), 3. add click to button component and the target will be `ScreenHelper.onclick`.
+3. **`Particle System`**:
+   1. As it is (UI Canvas default camera) the particle won't be displayed/rendered. Steps to fix it:
+      1. Render Mode: **Screen Space - Camera**
+      2. Set (Drag & Drop) the MainCamera into it
+      3. Drag & Drop the Particle System inside the MainCamera GameObject
+      4. 
+
+
 # UnityTemplate
 1. [Unity GitHub Repo Template](https://github.com/TonGarcia/UnityTemplate)
 2. [Unity GitLab GBaaS (Firebase+PlayFab+GBaas) Template Sample](https://gitlab.com/kpihunters/GBaaS/unity-gbaas-template)
