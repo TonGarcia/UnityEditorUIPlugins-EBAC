@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using NaughtyAttributes;
+using UnityEditor;
 using UnityEngine;
+using Utils;
 
 namespace Screen
 {
@@ -19,6 +21,7 @@ namespace Screen
         public ScreenType screenType;
         public bool startHidden = false;
         public List<Transform> uiElements;
+        public List<Typer> typers;
 
         [Header("Animations")] 
         public float animationDuration = .3f;
@@ -31,18 +34,13 @@ namespace Screen
         {
             if (startHidden) HideElements();
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
         #endregion
 
         #region Protected Overridable Methods
         [Button] // NaughtyAttributes --> create EditorButton to test the method
         protected virtual void Show()
         {
+            if (!EditorApplication.isPlaying) return;
             Debug.Log("ScreenBase SHOW Called");
             ShowElements();
         }
@@ -50,6 +48,7 @@ namespace Screen
         [Button] // NaughtyAttributes --> create EditorButton to test the method
         protected virtual void Hide()
         {
+            if (!EditorApplication.isPlaying) return;
             Debug.Log("ScreenBase HIDE Called");
             HideElements();
         }
@@ -78,6 +77,16 @@ namespace Screen
                     uiElement.gameObject.SetActive(active);
                     uiCounter++;
                 }
+            }
+
+            Invoke(nameof(StartTyping), delayBetweenElements * uiElements.Count);
+        }
+
+        private void StartTyping()
+        {
+            foreach (var typer in typers)
+            {
+                typer.StartTyping();
             }
         }
         #endregion
