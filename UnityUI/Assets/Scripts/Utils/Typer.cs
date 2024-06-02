@@ -20,13 +20,15 @@ namespace Utils
         public string phrase = "";
         #endregion
 
-        #region Unity Events
+        #region Private config & control vars
+        private Coroutine _currentTyper;
+        #endregion
 
+        #region Unity Events
         private void Awake()
         {
             textMesh.text = "";
         }
-
         #endregion
 
         #region Coroutine Events Definition

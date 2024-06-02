@@ -57,6 +57,7 @@ namespace Screen
         #region Private methods
         private void HideElements()
         {
+            CleanTypers();
             DisplayUIElements(false);   
         }
 
@@ -79,7 +80,12 @@ namespace Screen
                 }
             }
 
-            Invoke(nameof(StartTyping), delayBetweenElements * uiElements.Count);
+            if(active) Invoke(nameof(StartTyping), delayBetweenElements * uiElements.Count);
+        }
+
+        private void CleanTypers()
+        {
+            typers.ForEach(i => i.textMesh.text = "");
         }
 
         private void StartTyping()
