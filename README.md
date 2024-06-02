@@ -11,7 +11,10 @@
 2. Check the `Scripts/Button/ButtonScale.cs`. Check the **Hover** event by Implementing Interfaces and check Tween `Kill()` to avoid animation **"crashes"**
 
 ## UI/HUD
-1. 
+1. The screens GameObjects need to be Active to get their Scripts working. So to do that, follow the steps:
+   1. inactive all children GameObjects
+   2. active the **"ScreenBase"** GameObject
+   3. set the ScreenBase image and the C# script gonna enable/disable just the image, not the GameObject
 
 
 # UnityTemplate

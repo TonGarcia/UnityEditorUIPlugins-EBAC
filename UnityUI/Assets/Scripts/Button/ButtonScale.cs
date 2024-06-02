@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
@@ -38,7 +36,9 @@ namespace Button
         #region Unity Events
         private void Awake()
         {
+            Debug.Log($"ButtonScale Start: {gameObject.name} localScale before assignment: {transform.localScale}");
             _defaultScale = transform.localScale;
+            Debug.Log($"ButtonScale Start: {gameObject.name} _defaultScale after assignment: {_defaultScale}");
         }
         #endregion
     }

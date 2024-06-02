@@ -3,6 +3,7 @@ using DG.Tweening;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils;
 
 namespace Screen
@@ -20,8 +21,10 @@ namespace Screen
         [Header("Config Vars")]
         public ScreenType screenType;
         public bool startHidden = false;
+        public Image uiBackground;
         public List<Transform> uiElements;
         public List<Typer> typers;
+        
 
         [Header("Animations")] 
         public float animationDuration = .3f;
@@ -38,7 +41,7 @@ namespace Screen
 
         #region Protected Overridable Methods
         [Button] // NaughtyAttributes --> create EditorButton to test the method
-        protected virtual void Show()
+        public virtual void Show()
         {
             if (!EditorApplication.isPlaying) return;
             Debug.Log("ScreenBase SHOW Called");
@@ -46,7 +49,7 @@ namespace Screen
         }
         
         [Button] // NaughtyAttributes --> create EditorButton to test the method
-        protected virtual void Hide()
+        public virtual void Hide()
         {
             if (!EditorApplication.isPlaying) return;
             Debug.Log("ScreenBase HIDE Called");
@@ -58,12 +61,20 @@ namespace Screen
         private void HideElements()
         {
             CleanTypers();
-            DisplayUIElements(false);   
+            DisplayUIElements(false);
+            uiBackground.enabled = false;
         }
 
         private void ShowElements()
         {
+            uiBackground.enabled = true;
+            ResetUIElements();
             DisplayUIElements(true);
+        }
+        
+        private void ResetUIElements()
+        {
+            uiElements.ForEach(i => i.localScale = Vector3.one);
         }
 
         private void DisplayUIElements(bool active, bool animated = true)
