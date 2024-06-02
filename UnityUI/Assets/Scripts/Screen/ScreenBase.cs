@@ -71,10 +71,12 @@ namespace Screen
             if(!animated) uiElements.ForEach(i => i.gameObject.SetActive(active));
             else
             {
+                var uiCounter = 0;
                 foreach (var uiElement in uiElements)
                 {
-                    uiElement.gameObject.SetActive(true);
-                    uiElement.DOScale(0, animationDuration).From();
+                    uiElement.DOScale(0, animationDuration).From().SetDelay(uiCounter * delayBetweenElements);
+                    uiElement.gameObject.SetActive(active);
+                    uiCounter++;
                 }
             }
         }
