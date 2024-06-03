@@ -32,6 +32,8 @@
    4. To call this method should be like: `transform.Scale(2)` where 2 means the `size`, due the first is the obj itself
    5. Sample for GameObject: `public static void Scale(this GameObject go, float size = 1.2f)` --> `gameObject.Scale(2)`
    6. using generics for the Lists: `public static T GetRandom<T>(this List<T> list)`
+3. `Editor Extensions`: check the classes: `Car` and `CarEditor`
+   1. Check editor tooltip setup on the `CarEditor.cs`
 
 # UnityTemplate
 1. [Unity GitHub Repo Template](https://github.com/TonGarcia/UnityTemplate)
