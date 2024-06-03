@@ -25,7 +25,13 @@
 
 ## Unity Extensions
 1. Creating plugins to help on the development workflow
-2. 
+2. Steps to create extensions:
+   1. Create a class that does not inherit anything (no MonoBehavior...): `public static class CoreUtil`, like the Singleton
+   2. The method must be static as the class is
+   3. By adding `this` keyword means **what class would be modified when calling this method** (including this method as part of the existing class): `public static void Scale(this Transform t, float size = 1.2f)`
+   4. To call this method should be like: `transform.Scale(2)` where 2 means the `size`, due the first is the obj itself
+   5. Sample for GameObject: `public static void Scale(this GameObject go, float size = 1.2f)` --> `gameObject.Scale(2)`
+   6. 
 
 # UnityTemplate
 1. [Unity GitHub Repo Template](https://github.com/TonGarcia/UnityTemplate)
