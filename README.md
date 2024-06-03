@@ -33,7 +33,8 @@
    5. Sample for GameObject: `public static void Scale(this GameObject go, float size = 1.2f)` --> `gameObject.Scale(2)`
    6. using generics for the Lists: `public static T GetRandom<T>(this List<T> list)`
 3. `Editor Extensions`: check the classes: `Car` and `CarEditor`
-   1. Check editor tooltip setup on the `CarEditor.cs`
+   1. Check editor **tooltip** setup on the `CarEditor.cs`
+   2. creating a non hover "bootstrap alert": `EditorGUILayout.HelpBox("message", MessageType.Info);`
 
 # UnityTemplate
 1. [Unity GitHub Repo Template](https://github.com/TonGarcia/UnityTemplate)

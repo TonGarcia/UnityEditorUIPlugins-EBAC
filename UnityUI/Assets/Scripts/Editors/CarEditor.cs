@@ -25,6 +25,14 @@ namespace Editors
             myTarget.gearAmount = EditorGUILayout.IntField(new GUIContent(label2), myTarget.gearAmount);
             GUILayout.Button(new GUIContent("?", tooltip2), GUILayout.Width(20));
             EditorGUILayout.EndHorizontal();  // End horizontal layout
+            
+            EditorGUILayout.LabelField("Total max speed", myTarget.MaxSpeed.ToString());
+            EditorGUILayout.HelpBox("It calculates the max car speed!", MessageType.Info);
+
+            if (myTarget.MaxSpeed >= 100)
+            {
+                EditorGUILayout.HelpBox("The speed is greater than the max (100) allowed value!", MessageType.Error);
+            }
         }
     }
 }
