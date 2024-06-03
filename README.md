@@ -23,6 +23,9 @@
       3. Drag & Drop the Particle System inside the MainCamera GameObject
       4. 
 
+## Unity Extensions
+1. Creating plugins to help on the development workflow
+2. 
 
 # UnityTemplate
 1. [Unity GitHub Repo Template](https://github.com/TonGarcia/UnityTemplate)
