@@ -26,6 +26,16 @@
       2. add modifier to the class Header to be a **CustomEditor**: `[CustomEditor(typeof(Car))]` 
       3. to become an Editor **Inspector** Section override it method: `public override void OnInspectorGUI()` 
          1. the `OnInspectorGUI` lines work like StreamLit UI creation and it display these lines on a Inspector section
+6. Creating new **Menu Item** (**menu bar**):
+   1. Check `AtypicalUtils.cs` UnityEditor MenuItem modifier
+      1. *it is not necessary to add the script to any scene or anything else as it is an editor changer
+      2. *just by save the file the Editor already loads the option and created MenuItem Atypical/EditorMenuItem
+      3. *add if Editor to avoid the script to be executed while building the game
+   2. Hotkeys (shortcut to menu items)
+      1. "%" means CTRL Windows / CMD MacOS
+      2. "#" means Shift
+      3. "&" means Alt
+      4. --> Check `AtypicalUtils.cs` MenuItem name which defined a hotkey CTRL+G
 
 
 # Unity Tips
