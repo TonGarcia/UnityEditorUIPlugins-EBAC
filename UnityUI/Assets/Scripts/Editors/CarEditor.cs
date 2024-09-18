@@ -8,6 +8,8 @@ namespace Editors
     [CustomEditor(typeof(Car))]
     public class CarEditor : Editor
     {
+        public static Car TargetObj;
+        
         // override the rendered component on the Editor
         public override void OnInspectorGUI()
         {
@@ -15,7 +17,8 @@ namespace Editors
             
             // Prefab car
             myTarget.carPrefab = (GameObject)EditorGUILayout.ObjectField(myTarget.carPrefab, typeof(GameObject), true);
-
+            Editors.CarEditor.TargetObj = myTarget;
+            
             // Gear Speed inputs
             string label1 = "Gear Speed Limit";
             string tooltip1 = "This sets the maximum speed the car can reach in each gear.";

@@ -37,6 +37,13 @@
       3. "&" means Alt
       4. --> Check `AtypicalUtils.cs` MenuItem name which defined a hotkey CTRL+G
 
+# EBAC Challenge (response)
+
+1. Crie uma extensão para randomizar itens de lista:  `ExtensionUtil.cs` => `T GetRandom<T>(this T[] array)`
+2. Crie um botão que aparece no Inspector do script. Ao clicar nele, ele pode imprimir uma mensagem no console ou criar outro objeto: `CarEditor.cs` => `public override void OnInspectorGUI()`
+3. Spawn de objetos:
+   1. Botão no Inspetor para Spawnar GameObjects: `CarEditor.cs` => Linha 48 = botão de spawn ; `Car.cs` => Linha 17 = método de spawn
+   2. Botão na barra de ferramentas que cria um GameObject: `AtypicalUtils.cs` linha 17~48 => MenuItem de shortcut/hotkey (CTRL+J): `%j` 
 
 # Unity Tips
 *Free Assets used:
