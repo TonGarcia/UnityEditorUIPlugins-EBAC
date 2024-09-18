@@ -4,6 +4,7 @@
 2. [EBAC Unity Modules 9 to 19 - Platform 2D](https://github.com/TonGarcia/Platform2D-EBAC-Unity)
 3. [EBAC Unity Modules 20 to 26 - HyperCasual Mobile](https://github.com/TonGarcia/HyperCasual)
 4. [EBAC Unity Module 27 - Editor PlugIns](https://github.com/TonGarcia/UnityEditorUIPlugins-EBAC)
+5. [EBAC Unity 3D Module 28 ~ 40](https://github.com/TonGarcia/3D-Unity-EBAC)
 
 
 ## Unity Extensions
