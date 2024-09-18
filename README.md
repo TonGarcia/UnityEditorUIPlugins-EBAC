@@ -1,13 +1,55 @@
+# EBAC Repositories
+
 1. [EBAC Unity Modules 0 to 8 - Unity initial](https://github.com/TonGarcia/EBAC-Unity)
 2. [EBAC Unity Modules 9 to 19 - Platform 2D](https://github.com/TonGarcia/Platform2D-EBAC-Unity)
 3. [EBAC Unity Modules 20 to 26 - HyperCasual Mobile](https://github.com/TonGarcia/HyperCasual)
 4. [EBAC Unity Module 27 - Editor PlugIns](https://github.com/TonGarcia/UnityEditorUIPlugins-EBAC)
 
 
+## Unity Extensions
+1. **WHAT**: plugins that may change IDE/Editor or just helper methods to help on dev workflow
+2. **WHY**: development may need to reproduce many steps, the goal is to get a less effortful workflow
+3. **HOW**: creating scripts, Steps to create extensions:
+   1. Create a class that does not inherit anything (no MonoBehavior...): `public static class CoreUtil`, like the Singleton
+   2. The **method** must be **static** as the **class** is
+   3. By adding `this` keyword means **what class would be modified when calling this method** (including this method as part of the existing class): `public static void Scale(this Transform t, float size = 1.2f)`
+   4. To call this method should be like: `transform.Scale(2)` where 2 means the `size`, due the first is the obj itself
+   5. Sample for GameObject: `public static void Scale(this GameObject go, float size = 1.2f)` --> `gameObject.Scale(2)`
+   6. using generics for the Lists: `public static T GetRandom<T>(this List<T> list)`
+4. `Editor Extensions`: check the classes: `Car` and `CarEditor`
+   1. Check editor **tooltip** setup on the `CarEditor.cs`
+   2. creating a non hover "bootstrap alert": `EditorGUILayout.HelpBox("message", MessageType.Info);`
+5. **CHECKING**:
+   1. `Assets/Scripts/Core` = Core helpers like `Singleton` & `ExtensionUtil`
+   2. `Assets/Scripts/Editors` = Scripts that change the Editor behavior --> **as example check**: `CarEditor.cs`
+      1. instead of `using UnityEngine` it will be `using UnityEditor` and instead of ` : MonoBehavior` (extend) use ` : Editor`
+      2. add modifier to the class Header to be a **CustomEditor**: `[CustomEditor(typeof(Car))]` 
+      3. to become an Editor **Inspector** Section override it method: `public override void OnInspectorGUI()` 
+         1. the `OnInspectorGUI` lines work like StreamLit UI creation and it display these lines on a Inspector section
+6. Creating new **Menu Item** (**menu bar**):
+   1. Check `AtypicalUtils.cs` UnityEditor MenuItem modifier
+      1. *it is not necessary to add the script to any scene or anything else as it is an editor changer
+      2. *just by save the file the Editor already loads the option and created MenuItem Atypical/EditorMenuItem
+      3. *add if Editor to avoid the script to be executed while building the game
+   2. Hotkeys (shortcut to menu items)
+      1. "%" means CTRL Windows / CMD MacOS
+      2. "#" means Shift
+      3. "&" means Alt
+      4. --> Check `AtypicalUtils.cs` MenuItem name which defined a hotkey CTRL+G
+
+# EBAC Challenge (response)
+
+1. Crie uma extensão para randomizar itens de lista:  `ExtensionUtil.cs` => `T GetRandom<T>(this T[] array)`
+2. Crie um botão que aparece no Inspector do script. Ao clicar nele, ele pode imprimir uma mensagem no console ou criar outro objeto: `CarEditor.cs` => `public override void OnInspectorGUI()`
+3. Spawn de objetos:
+   1. Botão no Inspetor para Spawnar GameObjects: `CarEditor.cs` => Linha 48 = botão de spawn ; `Car.cs` => Linha 17 = método de spawn
+   2. Botão na barra de ferramentas que cria um GameObject: `AtypicalUtils.cs` linha 17~48 => MenuItem de shortcut/hotkey (CTRL+J): `%j` 
+
 # Unity Tips
 *Free Assets used:
 1. Dark UI
 2. NaughtyAttributes
+
 *Editor Tips:
 1. On list attributes: select all elements on the Hierarchy and drag & drop into the list attr name
 
